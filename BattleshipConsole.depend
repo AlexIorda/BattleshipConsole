@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1646756096 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\main.cpp
+	<iostream>
+	<unordered_map>
+	<stdexcept>
+	<mutex>
+	"Menu.h"
+	"MainMenuState.h"
+
+1646756141 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\menu.h
+	"MenuState.h"
+
+1646756319 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\menustate.h
+
+1646753485 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\menustate.cpp
+	"MenuState.h"
+
+1646756125 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\menu.cpp
+	"../include/Menu.h"
+
+1646756699 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\mainmenustate.h
+	<iostream>
+	"Menu.h"
+	"GameMenuState.h"
+	"HelpMenuState.h"
+
+1646756207 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\helpmenustate.h
+	<iostream>
+	"Menu.h"
+	"MainMenuState.h"
+
+1646756325 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\helpmenustate.cpp
+	"HelpMenuState.h"
+
+1646756749 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\mainmenustate.cpp
+	"MainMenuState.h"
+
+1646756819 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\gamemenustate.h
+	<iostream>
+	"Menu.h"
+	"MainMenuState.h"
+
