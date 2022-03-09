@@ -18,9 +18,9 @@ bool GameMenuState::printMenuHandle() const
     char option;
     std::cin >> option;
     switch (option) {
-    case 'B':
-    case 'b':
-        this->menu_->changeState(new MainMenuState);
-        return true;
+        case 'B':
+        case 'b':
+            this->menu_->changeState(new MainMenuState);
+            return true;
     }
 }

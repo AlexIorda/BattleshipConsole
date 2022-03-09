@@ -85,11 +85,22 @@ bool Grid::validDir(std::string dir)
 
 Ship* Grid::validSetup(int shipSize, char row, char col, char dir)
 {
+    // TODO: Implement Collisions
+
     Ship* ship = new Ship(shipSize, row, col, dir);
-    if (ship->isValidCoord(ship->getEndCoord()))
-        return ship;
-    std::cout << "This ship is not valid, try again!\n";
-    return NULL;
+
+    for (std::pair<int, int> coords: ship->getCoordList())
+        if (cells_[coords.first][coords.second].content == 8) {
+            std::cout << "Collision between ships, try again!\n";
+            return NULL;
+        }
+
+    if (!ship->isValidCoord(ship->getEndCoord())) {
+        std::cout << "This ship is not valid, try again!\n";
+        return NULL;
+    }
+
+    return ship;
 }
 
 void Grid::printGrid()
