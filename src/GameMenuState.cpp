@@ -1,11 +1,19 @@
 #include "GameMenuState.h"
 
+#include "Battleship.h"
+
 bool GameMenuState::printMenuHandle() const
 {
     std::cout << "/----------------------------------------\\\n";
-    std::cout << "Not yet implemented\n\n";
+
+    Battleship* battleship = new Battleship();
+
+    delete battleship;
+
+
     std::cout << "[B] Back\n";
     std::cout << "\\----------------------------------------/\n";
+
     std::cout << "> Select option: ";
     char option;
     std::cin >> option;

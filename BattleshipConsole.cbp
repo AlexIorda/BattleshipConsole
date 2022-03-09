@@ -34,9 +34,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/GameMenuState.h" />
+		<Unit filename="include/HelpMenuState.h" />
+		<Unit filename="include/MainMenuState.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MenuState.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/GameMenuState.cpp" />
+		<Unit filename="src/HelpMenuState.cpp" />
+		<Unit filename="src/MainMenuState.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/MenuState.cpp" />
 		<Extensions>
