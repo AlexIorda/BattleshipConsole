@@ -25,6 +25,7 @@ void Player::doMove()
         do {std::cout << "> Row: "; std::cin >> row;} while (!grid_->validRow(row));
         do {std::cout << "> Col: "; std::cin >> col;} while (!grid_->validCol(col));
     } while (grid_->getCell(row[0] - '1', col[0] - 'A')->isHit());
+    std::cout << "\n\n";
 
     grid_->getCell(row[0] - '1', col[0] - 'A')->setHit(true);
     if (grid_->getCell(row[0] - '1', col[0] - 'A')->isShip())

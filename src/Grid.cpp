@@ -103,7 +103,9 @@ Ship* Grid::validSetup(int shipSize, char row, char col, char dir)
 
 void Grid::printGrid()
 {
+    std::cout << "  A B C D E F G H\n";
     for (int i = 0; i < 8; ++i) {
+        std::cout << i + 1 << " ";
         for (int j = 0; j < 8; ++j)
             std::cout << cells_[i][j]->getSymbol() << " ";
         std::cout << '\n';
