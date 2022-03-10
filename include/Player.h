@@ -4,6 +4,7 @@
 #include <string>
 
 #include "Grid.h"
+#include "Cell.h"
 
 class Player
 {
@@ -14,4 +15,5 @@ class Player
         Player();
         ~Player();
         Grid* getGrid();
+        void doMove();
 };

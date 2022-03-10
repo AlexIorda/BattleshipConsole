@@ -11,7 +11,8 @@
 class Grid
 {
     private:
-        Cell cells_[8][8];
+        int hiddenShips_ = 0;
+        Cell *cells_[8][8];
         std::vector<Ship*> ships_;
         std::map<int, std::string> shipNames_ {
             {2, "Destroyer"},
@@ -24,11 +25,15 @@ class Grid
         Grid();
         ~Grid();
         void setupShip(int shipSize);
-
-    private:
+        void hideCells();
+        void printGrid();
+        Cell* getCell(int row, int col);
         bool validRow(std::string row);
         bool validCol(std::string col);
+        void hitShip();
+        bool hasHiddenShips();
+
+    private:
         bool validDir(std::string dir);
         Ship* validSetup(int shipSize, char row, char col, char dir);
-        void printGrid();
 };

@@ -1,11 +1,18 @@
+#pragma once
 
 class Cell
 {
-    public:
-        int content;
+    private:
+        bool isShip_ = false;
+        bool isHit_ = true;
 
     public:
         Cell();
         ~Cell();
-
+        void setShip(bool isShip);
+        void setHit(bool isHit);
+        bool isShip();
+        bool isHit();
+        char getSymbol();
 };
+

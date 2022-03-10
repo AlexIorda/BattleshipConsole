@@ -2,25 +2,21 @@
 
 Grid::Grid()
 {
+    for (int i = 0; i < 8; ++i)
+        for (int j = 0; j < 8; ++j)
+            cells_[i][j] = new Cell();
+
     printGrid();
     setupShip(2);
     printGrid();
-    setupShip(3);
+/*    setupShip(3);
     printGrid();
     setupShip(3);
     printGrid();
     setupShip(4);
     printGrid();
     setupShip(5);
-    printGrid();
-
-    for (int i = 0; i < 8; ++i)
-        for (int j = 0; j < 8; ++j)
-            cells_[i][j] = Cell();
-
-    for (Ship* ship: ships_)
-        for (std::pair<int, int> coords: ship->getCoordList())
-            cells_[coords.first][coords.second].content = 8;
+    printGrid(); */
 }
 
 Grid::~Grid()
@@ -41,7 +37,11 @@ void Grid::setupShip(int shipSize)
         do {std::cout << "> Up, Down, Left, Right? (U/D/L/R): "; std::cin >> dir;} while (!validDir(dir));
     } while ((ship = validSetup(shipSize, row[0], col[0], dir[0])) == NULL);
 
-    ships_.push_back(new Ship(shipSize, row[0], col[0], dir[0]));
+    for (std::pair<int, int> coords: ship->getCoordList()) {
+        ++hiddenShips_;
+        cells_[coords.first][coords.second]->setShip(true);
+    }
+    ships_.push_back(ship);
 }
 
 bool Grid::validRow(std::string row)
@@ -85,35 +85,50 @@ bool Grid::validDir(std::string dir)
 
 Ship* Grid::validSetup(int shipSize, char row, char col, char dir)
 {
-    // TODO: Implement Collisions
-
     Ship* ship = new Ship(shipSize, row, col, dir);
-
-    for (std::pair<int, int> coords: ship->getCoordList())
-        if (cells_[coords.first][coords.second].content == 8) {
-            std::cout << "Collision between ships, try again!\n";
-            return NULL;
-        }
 
     if (!ship->isValidCoord(ship->getEndCoord())) {
         std::cout << "This ship is not valid, try again!\n";
         return NULL;
     }
 
+    for (std::pair<int, int> coords: ship->getCoordList())
+        if (cells_[coords.first][coords.second]->isShip()) {
+            std::cout << "Collision between ships, try again!\n";
+            return NULL;
+        }
+
     return ship;
 }
 
 void Grid::printGrid()
 {
-    for (Ship* ship: ships_)
-        for (std::pair<int, int> coords: ship->getCoordList())
-            cells_[coords.first][coords.second].content = 8;
-
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j)
-            std::cout << cells_[i][j].content << " ";
+            std::cout << cells_[i][j]->getSymbol() << " ";
         std::cout << '\n';
     }
     std::cout << '\n';
 }
 
+void Grid::hideCells()
+{
+    for (int i = 0; i < 8; i++)
+        for (int j = 0; j < 8; j++)
+            cells_[i][j]->setHit(false);
+}
+
+Cell* Grid::getCell(int row, int col)
+{
+    return cells_[row][col];
+}
+
+void Grid::hitShip()
+{
+    --hiddenShips_;
+}
+
+bool Grid::hasHiddenShips()
+{
+    return hiddenShips_ != 0;
+}
