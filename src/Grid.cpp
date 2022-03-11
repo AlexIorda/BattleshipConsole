@@ -1,10 +1,13 @@
 #include "Grid.h"
 
-Grid::Grid()
+Grid::Grid(int gridSize)// : gridSize_(gridSize)
 {
-    for (int i = 0; i < 8; ++i)
-        for (int j = 0; j < 8; ++j)
-            cells_[i][j] = new Cell();
+    gridSize_ = gridSize;
+    cells_.resize(gridSize_, std::vector<Cell*>(gridSize_));
+
+    for (auto& row: cells_)
+        for (auto& cell: row)
+            cell = new Cell();
 
     printGrid();
     setupShip(2);
@@ -103,8 +106,12 @@ Ship* Grid::validSetup(int shipSize, char row, char col, char dir)
 
 void Grid::printGrid()
 {
-    std::cout << "  A B C D E F G H\n";
-    for (int i = 0; i < 8; ++i) {
+    std::cout << "  ";
+    for (int i = 0; i < gridSize_; ++i)
+        std::cout << (char)('A' + i) << " ";
+    std::cout << '\n';
+
+    for (int i = 0; i < gridSize_; ++i) {
         std::cout << i + 1 << " ";
         for (int j = 0; j < 8; ++j)
             std::cout << cells_[i][j]->getSymbol() << " ";
@@ -115,8 +122,8 @@ void Grid::printGrid()
 
 void Grid::hideCells()
 {
-    for (int i = 0; i < 8; i++)
-        for (int j = 0; j < 8; j++)
+    for (int i = 0; i < gridSize_; i++)
+        for (int j = 0; j < gridSize_; j++)
             cells_[i][j]->setHit(false);
 }
 

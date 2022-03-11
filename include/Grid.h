@@ -11,8 +11,9 @@
 class Grid
 {
     private:
+        int gridSize_;
         int hiddenShips_ = 0;
-        Cell *cells_[8][8];
+        std::vector<std::vector<Cell*>> cells_;
         std::vector<Ship*> ships_;
         std::map<int, std::string> shipNames_ {
             {2, "Destroyer"},
@@ -22,7 +23,7 @@ class Grid
         };
 
     public:
-        Grid();
+        Grid(int gridSize = 8);
         ~Grid();
         void setupShip(int shipSize);
         void hideCells();
