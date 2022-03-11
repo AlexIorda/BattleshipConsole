@@ -41,14 +41,13 @@
 	"GameMenuState.h"
 	"Battleship.h"
 
-1646999319 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\battleship.cpp
+1647012667 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\battleship.cpp
 	"Battleship.h"
 
-1646999319 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\battleship.h
-	"Player.h"
+1647014395 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\battleship.h
+	"HumanPlayer.h"
 
-1647010856 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\player.h
-	<iostream>
+1647014782 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\player.h
 	<string>
 	"Grid.h"
 	"Cell.h"
@@ -65,7 +64,7 @@
 	<utility>
 	<tuple>
 
-1647011235 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\player.cpp
+1647014547 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\player.cpp
 	"Player.h"
 
 1646840835 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\ship.cpp
@@ -76,6 +75,13 @@
 1646926815 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\cell.cpp
 	"Cell.h"
 
-1647011146 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\grid.cpp
+1647014740 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\grid.cpp
 	"Grid.h"
+
+1647014510 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\humanplayer.cpp
+	"HumanPlayer.h"
+
+1647014772 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\humanplayer.h
+	<iostream>
+	"Player.h"
 

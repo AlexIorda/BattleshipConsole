@@ -3,9 +3,9 @@
 Battleship::Battleship()
 {
     std::cout << "Setup Player 1:\n\n";
-    player1 = new Player();
+    player1 = new HumanPlayer();
     std::cout << "Setup Player 2:\n\n";
-    player2 = new Player();
+    player2 = new HumanPlayer();
 
     while (player1->getGrid()->hasHiddenShips()
            && player2->getGrid()->hasHiddenShips()) {

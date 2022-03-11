@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Player.h"
+#include "HumanPlayer.h"
 
 class Battleship
 {
@@ -10,5 +10,5 @@ class Battleship
 
     public:
         Battleship();
-        ~Battleship();
+        virtual ~Battleship();
 };

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <string>
 
 #include "Grid.h"
@@ -8,21 +7,18 @@
 
 class Player
 {
-    private:
+    protected:
         std::string name_;
         std::vector<Ship*> ships_;
         Grid* grid_;
 
     public:
         Player();
-        ~Player();
+        virtual ~Player();
         Grid* getGrid();
-        void doMove();
+        virtual void doMove() = 0;
 
     private:
-        void setupShip(int shipSize);
-        bool validRow(std::string row);
-        bool validCol(std::string col);
-        bool validDir(std::string dir);
-        Ship* validSetup(int shipSize, char row, char col, char dir);
+        virtual void setupShip(int shipSize) = 0;
+        virtual Ship* validSetup(int shipSize, char row, char col, char dir) = 0;
 };
