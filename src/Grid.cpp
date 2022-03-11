@@ -1,6 +1,6 @@
 #include "Grid.h"
 
-Grid::Grid(int gridSize)// : gridSize_(gridSize)
+Grid::Grid(int gridSize)
 {
     gridSize_ = gridSize;
     cells_.resize(gridSize_, std::vector<Cell*>(gridSize_));
@@ -8,100 +8,11 @@ Grid::Grid(int gridSize)// : gridSize_(gridSize)
     for (auto& row: cells_)
         for (auto& cell: row)
             cell = new Cell();
-
-    printGrid();
-    setupShip(2);
-    printGrid();
-/*    setupShip(3);
-    printGrid();
-    setupShip(3);
-    printGrid();
-    setupShip(4);
-    printGrid();
-    setupShip(5);
-    printGrid(); */
 }
 
 Grid::~Grid()
 {
-    for (Ship* ship: ships_)
-        delete ship;
-}
 
-void Grid::setupShip(int shipSize)
-{
-    std::string row, col, dir;
-    Ship* ship;
-
-    std::cout << "Place your " << shipNames_.at(shipSize) << " (size " << shipSize << ")\n";
-    do {
-        do {std::cout << "> Row: "; std::cin >> row;} while (!validRow(row));
-        do {std::cout << "> Col: "; std::cin >> col;} while (!validCol(col));
-        do {std::cout << "> Up, Down, Left, Right? (U/D/L/R): "; std::cin >> dir;} while (!validDir(dir));
-    } while ((ship = validSetup(shipSize, row[0], col[0], dir[0])) == NULL);
-
-    for (std::pair<int, int> coords: ship->getCoordList()) {
-        ++hiddenShips_;
-        cells_[coords.first][coords.second]->setShip(true);
-    }
-    ships_.push_back(ship);
-}
-
-bool Grid::validRow(std::string row)
-{
-    if (row.size() != 1) {
-        std::cout << "Please enter one character!\n";
-        return false;
-    }
-    if (row[0] < '0' || row[0] > '9') {
-        std::cout << "Please enter a digit (0-9)!\n";
-        return false;
-    }
-    return true;
-}
-
-bool Grid::validCol(std::string col)
-{
-    if (col.size() != 1) {
-        std::cout << "Please enter one character!\n";
-        return false;
-    }
-    if (col[0] < 'A' || col[0] > 'H') {
-        std::cout << "Please enter a letter (A-G)!\n";
-        return false;
-    }
-    return true;
-}
-
-bool Grid::validDir(std::string dir)
-{
-    if (dir.size() != 1) {
-        std::cout << "Please enter one character!\n";
-        return false;
-    }
-    if (dir[0] != 'U' && dir[0] != 'D' && dir[0] != 'L' && dir[0] != 'R') {
-        std::cout << "Please enter a direction (U/D/L/R)!\n";
-        return false;
-    }
-    return true;
-}
-
-Ship* Grid::validSetup(int shipSize, char row, char col, char dir)
-{
-    Ship* ship = new Ship(shipSize, row, col, dir);
-
-    if (!ship->isValidCoord(ship->getEndCoord())) {
-        std::cout << "This ship is not valid, try again!\n";
-        return NULL;
-    }
-
-    for (std::pair<int, int> coords: ship->getCoordList())
-        if (cells_[coords.first][coords.second]->isShip()) {
-            std::cout << "Collision between ships, try again!\n";
-            return NULL;
-        }
-
-    return ship;
 }
 
 void Grid::printGrid()
@@ -137,7 +48,17 @@ void Grid::hitShip()
     --hiddenShips_;
 }
 
+void Grid::placeShip()
+{
+    ++hiddenShips_;
+}
+
 bool Grid::hasHiddenShips()
 {
     return hiddenShips_ != 0;
+}
+
+std::map<int, std::string> Grid::getShipNames()
+{
+    return shipNames_;
 }

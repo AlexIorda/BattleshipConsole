@@ -23,4 +23,5 @@ bool GameMenuState::printMenuHandle() const
             this->menu_->changeState(new MainMenuState);
             return true;
     }
+    return false;
 }
