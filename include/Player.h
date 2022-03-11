@@ -8,7 +8,6 @@
 class Player
 {
     protected:
-        std::string name_;
         std::vector<Ship*> ships_;
         Grid* grid_;
 

@@ -47,7 +47,7 @@
 1647014395 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\battleship.h
 	"HumanPlayer.h"
 
-1647014782 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\player.h
+1647014915 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\player.h
 	<string>
 	"Grid.h"
 	"Cell.h"
@@ -64,7 +64,7 @@
 	<utility>
 	<tuple>
 
-1647014547 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\player.cpp
+1647014857 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\player.cpp
 	"Player.h"
 
 1646840835 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\ship.cpp
@@ -83,5 +83,11 @@
 
 1647014772 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\humanplayer.h
 	<iostream>
+	"Player.h"
+
+1647015214 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\randomcpuplayer.cpp
+	"RandomCpuPlayer.h"
+
+1647015182 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\randomcpuplayer.h
 	"Player.h"
 

@@ -15,5 +15,3 @@ Grid* Player::getGrid()
 {
     return grid_;
 }
-
-
