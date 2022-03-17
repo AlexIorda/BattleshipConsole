@@ -1,6 +1,7 @@
 #pragma once
 
 #include "HumanPlayer.h"
+#include "RandomCpuPlayer.h"
 
 class Battleship
 {

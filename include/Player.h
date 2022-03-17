@@ -15,9 +15,11 @@ class Player
         Player();
         virtual ~Player();
         Grid* getGrid();
-        virtual void doMove() = 0;
+        virtual void doMove(Grid* enemyGrid) = 0;
 
     private:
         virtual void setupShip(int shipSize) = 0;
-        virtual Ship* validSetup(int shipSize, char row, char col, char dir) = 0;
+
+    protected:
+        Ship* validSetup(int shipSize, char row, char col, char dir);
 };

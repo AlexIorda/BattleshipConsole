@@ -24,7 +24,7 @@ void Grid::printGrid()
 
     for (int i = 0; i < gridSize_; ++i) {
         std::cout << i + 1 << " ";
-        for (int j = 0; j < 8; ++j)
+        for (int j = 0; j < gridSize_; ++j)
             std::cout << cells_[i][j]->getSymbol() << " ";
         std::cout << '\n';
     }
@@ -35,7 +35,7 @@ void Grid::hideCells()
 {
     for (int i = 0; i < gridSize_; i++)
         for (int j = 0; j < gridSize_; j++)
-            cells_[i][j]->setHit(false);
+            cells_[i][j]->setHidden(true);
 }
 
 Cell* Grid::getCell(int row, int col)
@@ -61,4 +61,9 @@ bool Grid::hasHiddenShips()
 std::map<int, std::string> Grid::getShipNames()
 {
     return shipNames_;
+}
+
+int Grid::getGridSize()
+{
+    return gridSize_;
 }

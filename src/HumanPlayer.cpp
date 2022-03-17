@@ -13,6 +13,8 @@ HumanPlayer::HumanPlayer()
     grid_->printGrid();
     setupShip(5);
     grid_->printGrid(); */
+
+//    grid_->hideCells();
 }
 
 HumanPlayer::~HumanPlayer()
@@ -21,20 +23,21 @@ HumanPlayer::~HumanPlayer()
         delete ship;
 }
 
-void HumanPlayer::doMove()
+void HumanPlayer::doMove(Grid* enemyGrid)
 {
     std::string row, col;
 
-    std::cout << "Where do you thing their ship is?\n";
+    std::cout << "Where do you think their ship is?\n";
     do {
         do {std::cout << "> Row: "; std::cin >> row;} while (!validRow(row));
         do {std::cout << "> Col: "; std::cin >> col;} while (!validCol(col));
-    } while (grid_->getCell(row[0] - '1', col[0] - 'A')->isHit());
+    } while (enemyGrid->getCell(row[0] - '1', col[0] - 'A')->isHit());
     std::cout << "\n\n";
 
-    grid_->getCell(row[0] - '1', col[0] - 'A')->setHit(true);
-    if (grid_->getCell(row[0] - '1', col[0] - 'A')->isShip())
-        grid_->hitShip();
+    enemyGrid->getCell(row[0] - '1', col[0] - 'A')->setHit(true);
+    enemyGrid->getCell(row[0] - '1', col[0] - 'A')->setHidden(false);
+    if (enemyGrid->getCell(row[0] - '1', col[0] - 'A')->isShip())
+        enemyGrid->hitShip();
 }
 
 void HumanPlayer::setupShip(int shipSize)
@@ -75,8 +78,8 @@ bool HumanPlayer::validCol(std::string col)
         std::cout << "Please enter one character!\n";
         return false;
     }
-    if (col[0] < 'A' || col[0] > 'H') {
-        std::cout << "Please enter a letter (A-G)!\n";
+    if (col[0] < 'A' || col[0] > 'A' + grid_->getGridSize()) {
+        std::cout << "Please enter a letter (A-" << 'A' + grid_->getGridSize() << ")!\n";
         return false;
     }
     return true;
@@ -93,22 +96,4 @@ bool HumanPlayer::validDir(std::string dir)
         return false;
     }
     return true;
-}
-
-Ship* HumanPlayer::validSetup(int shipSize, char row, char col, char dir)
-{
-    Ship* ship = new Ship(shipSize, row, col, dir);
-
-    if (!ship->isValidCoord(ship->getEndCoord())) {
-        std::cout << "This ship is not valid, try again!\n";
-        return NULL;
-    }
-
-    for (std::pair<int, int> coords: ship->getCoordList())
-        if (grid_->getCell(coords.first, coords.second)->isShip()) {
-            std::cout << "Collision between ships, try again!\n";
-            return NULL;
-        }
-
-    return ship;
 }

@@ -20,10 +20,19 @@ void Cell::setHit(bool isHit)
     isHit_ = isHit;
 }
 
+void Cell::setHidden(bool isHidden)
+{
+    isHidden_ = isHidden;
+}
+
 char Cell::getSymbol()
 {
-    if (!isHit_) return '?';
-    if (isShip_) return 'X';
+    if (isHidden_) return '?';
+    if (isHit_) {
+        if (isShip_) return 'X';
+        else return 'x';
+    }
+    if (isShip_) return '#';
     return '.';
 }
 
@@ -35,4 +44,9 @@ bool Cell::isShip()
 bool Cell::isHit()
 {
     return isHit_;
+}
+
+bool Cell::isHidden()
+{
+    return isHidden_;
 }

@@ -41,18 +41,19 @@
 	"GameMenuState.h"
 	"Battleship.h"
 
-1647012667 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\battleship.cpp
+1647527374 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\battleship.cpp
 	"Battleship.h"
 
-1647014395 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\battleship.h
+1647524901 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\battleship.h
 	"HumanPlayer.h"
+	"RandomCpuPlayer.h"
 
-1647014915 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\player.h
+1647526021 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\player.h
 	<string>
 	"Grid.h"
 	"Cell.h"
 
-1647010860 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\grid.h
+1647523947 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\grid.h
 	<iostream>
 	<vector>
 	<map>
@@ -64,30 +65,32 @@
 	<utility>
 	<tuple>
 
-1647014857 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\player.cpp
+1647527046 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\player.cpp
 	"Player.h"
 
 1646840835 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\ship.cpp
 	"Ship.h"
 
-1646926818 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\cell.h
+1647525659 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\cell.h
 
-1646926815 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\cell.cpp
+1647525632 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\cell.cpp
 	"Cell.h"
 
-1647014740 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\grid.cpp
+1647527307 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\grid.cpp
 	"Grid.h"
 
-1647014510 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\humanplayer.cpp
+1647527257 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\humanplayer.cpp
 	"HumanPlayer.h"
 
-1647014772 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\humanplayer.h
+1647526102 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\humanplayer.h
 	<iostream>
 	"Player.h"
 
-1647015214 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\randomcpuplayer.cpp
+1647527701 source:c:\users\vandr\desktop\coding workspace\battleshipconsole\src\randomcpuplayer.cpp
 	"RandomCpuPlayer.h"
 
-1647015182 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\randomcpuplayer.h
+1647526689 c:\users\vandr\desktop\coding workspace\battleshipconsole\include\randomcpuplayer.h
 	"Player.h"
+	<random>
+	<ctime>
 

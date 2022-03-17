@@ -30,4 +30,5 @@ class Grid
         void placeShip();
         bool hasHiddenShips();
         std::map<int, std::string> getShipNames();
+        int getGridSize();
 };
